@@ -1,75 +1,127 @@
-﻿
-////----------------file handling concept in c#
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//using System;
-//using System.IO;
+namespace DesignPatternDemo_Sureprep
+{
+     class Program
+    {
+        static void Main(string[] args)
+        {
 
-//class MyClass
-//{
-//    static void Main(string[] args)
-//    {
-//        //FileInfo f1 = new FileInfo(@"c:\demo\sample.txt");
-//        //Console.WriteLine("File name is : "+f1.Name);
-//        //Console.WriteLine("File Extension is : " + f1.Extension);
-//        //Console.WriteLine("File FullName is : " + f1.FullName);
-//        //Console.WriteLine("File Length is : " + f1.Length);
-//        //Console.WriteLine("File LastAccessTime is : " + f1.LastAccessTime);
-//        //Console.WriteLine("File LastWriteTime is : " + f1.LastWriteTime);
-//        //Console.WriteLine("File Directory is : " + f1.Directory);
+         //   Console.WriteLine("==============Abstract Factory Pattern======");
+         //   MyKitchen k = new MyKitchen();
 
-//        //DirectoryInfo f2 = new DirectoryInfo(@"c:\demo");
-//        //Console.WriteLine("Directory name is : " + f2.Name);
-//        //Console.WriteLine("Directory FullName is : " + f2.FullName);
-//        //Console.WriteLine("Directory Exists ? " + f2.Exists);
-//        //Console.WriteLine("Directory LastAccessTime is : " + f2.LastAccessTime);
-//        //Console.WriteLine("Directory LastWriteTime is : " + f2.LastWriteTime);
-       
-//        //DriveInfo f3 = new DriveInfo("c:\\");
-//        //Console.WriteLine("DriveInfo name is : " + f3.Name);
-//        //Console.WriteLine("DriveInfo total size is : " + f3.TotalSize);
-//        //Console.WriteLine("DriveInfo TotalFreeSpace is : " + f3.TotalFreeSpace);
-//        //Console.WriteLine("DriveInfo volume label is : " + f3.VolumeLabel);
-//        //Console.WriteLine("DriveInfo AvailableFreeSpace is : " + f3.AvailableFreeSpace);
+         //   k.createItems();
 
-//        //Directory.CreateDirectory(@"c:\\demo\\demo123");
-//        ////Directory.Move
-//        ////Directory.Delete
+         ////   List<KitchenItem> items = k.getItems();
+         //   List<KitchenItem> items =new List<KitchenItem>();
 
-//        //string sourceDirectory = @"c:\demo\source";
-//        //string destinationDirectory = @"c:\demo\destination";
-//        //Directory.Move(sourceDirectory, destinationDirectory);
+         //   foreach (KitchenItem ki in items)
+         //   {
+         //       Console.WriteLine(ki.print());
+         //   }
 
 
-//        string sourcedirectory = @"C:\demo\source";   //a.txt
-//        string destinationdirectory = @"C:\demo\destination";
-//        string backupdirectory = @"C:\demo\Backup";
-//        try
-//        {
-//            if (Directory.Exists(sourcedirectory))
-//            {
-//                if (Directory.Exists(destinationdirectory))
-//                {
-//                    //Directory.Delete(destinationdirectory);
-//                    Directory.Move(destinationdirectory, backupdirectory + DateTime.Now.ToString("_MMMdd_yyyy_HHmmss"));
-//                    Directory.Move(sourcedirectory, destinationdirectory);
-//                }
-//                else
-//                {
-//                    Directory.Move(sourcedirectory, destinationdirectory);
-//                }
-//            }
+            Console.WriteLine("Singleton Pattern======");
+            ThisApplication app1 = ThisApplication.Instance();
+            app1.setName("App1");
 
-//        }
-//        catch (Exception ex)
-//        {
-//            Console.WriteLine(ex.Message);
-//        }
+            Console.WriteLine(app1.getName());
+
+            ThisApplication app2 = ThisApplication.Instance();
+            app2.setName("App2");
+
+            Console.WriteLine(app2.getName());
+
+            Console.WriteLine(app1.getName() + " = " + app2.getName());
 
 
+            Console.ReadLine();
+        }
+    }
+
+    abstract class KitchenItem
+    {
+        public abstract string print();
+    }
+    class Spoon : KitchenItem
+    {
+        public override string print() { return "Spoon"; }
+    }
+    class Pan : KitchenItem
+    {
+        public override string print() { return "Pan"; }
+    }
+    class Kettle : KitchenItem
+    {
+        public override string print() { return "Kettle"; }
+    }
+    class Glass : KitchenItem
+    {
+        public override string print() { return "Glass"; }
+    }
+
+    abstract class Kitchen
+    {
+        protected List<KitchenItem> mItems = new List<KitchenItem>();
+
+        public List<KitchenItem> getItems()
+        {
+            return mItems;
+        }
+
+        public abstract void createItems();
+    }
+    class MyKitchen : Kitchen
+    {
+        public override void createItems()
+        {
+            mItems.Add(new Spoon());
+            mItems.Add(new Pan());
+            mItems.Add(new Glass());
+        }
+    }
+    class ThisApplication
+    {
+        private static ThisApplication _instance;
+        private string name = "ThisApplication";
+        protected ThisApplication()
+        { }
+        public static ThisApplication Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new ThisApplication();
+            }
+            return _instance;
+        }
+
+        public string getName() { return name; }
+
+        public void setName(string n) { name = n; }
+    }
+
+    /// //////////////////////////////prototype//////////////////////////////
+    /// 
+    abstract class BookingType
+    {
+        private string mSeat;
+        public void setSeat(string s) { mSeat = s; }
+        public abstract BookingType clone();
+        public string getSeat() { return mSeat; }
+
+    }
+
+    class Booking : BookingType
+    {
+        public override BookingType clone()
+        {
+            return this.MemberwiseClone() as BookingType;
+        }
+    }
 
 
-
-
-//        Console.ReadLine();
-//    }
-//}
+}
