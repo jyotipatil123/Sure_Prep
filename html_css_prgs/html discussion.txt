@@ -1,0 +1,123 @@
+Editors
+  atom
+  notepad
+  notepad++
+  vim
+  brackets
+  visual studio
+  vs code 
+  ....
+  ....
+
+=============================
+browsers : 
+   browser compatibility issue
+   chromium
+   chrome
+   edge
+   IE
+   firefox
+   netscape .........
+static web page
+  no interactive
+
+Eg : educational websites, marketing products
+
+dynamic web pages : 
+   interactive
+HTML
+   hyper text markup language
+   tags
+     <>    </>
+   
+.html 
+============================================================
+formatting tags
+image
+hyperlink
+fieldset -legend
+br
+hr
+tables
+form controls
+   label
+   button
+   textbox
+   ................
+
+
+Formatting tags :
+  b -bold 
+  strong 
+
+  em emphasized
+  i  italic
+  small 
+  big
+  sup
+  sub
+  ins
+  del 
+  
+
+Heading styles : 
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+=============================================
+html tables
+   collection of rows, cols
+   
+attributes : 
+   cellspacing
+   cellpadding
+   bgcolor
+   rowspan
+   colspan
+   border
+   thead
+   tfoot
+   tbody
+HTML controls : 
+   label
+   textbox
+   radio button
+   check box
+   password
+   textarea
+   drop down list
+   list box
+   
+
+
+Lists
+  ul
+  ol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

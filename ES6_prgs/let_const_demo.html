@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Let and const demo</title>
+    
+    <script>
+         var x = 1;
+         var x=10; 
+        
+        console.log(x); 
+                
+        {
+            var x=20;
+            var x=30;
+            console.log("inside function " +x);
+        }
+          console.log(x); 
+        
+       {
+          const x = 2;
+       }
+        console.log(x); 
+        
+      {
+          const x = 3;
+      }              
+      console.log(x); 
+        
+      {
+          const x = 4;
+      }
+      console.log(x);  
+     
+/* let and var */
+        document.write("var for loop : ")
+        for(var i=0;i<5;i++)
+            {
+               var i=20;
+               console.log(i); 
+            }
+         
+        
+        document.write("let for loop : ")
+         for(let i=0;i<5;i++)
+            {
+              let i=20;
+               console.log(i);
+            }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+/* 
+Let :        global scope             reassign , redeclaration  xxxxx
+             local scope              redeclaration xxx, available only inside function blocks 
+
+Var :        global scope             reassign  , redeclaration   
+             local scope              redeclaration ,available only inside function blocks 
+
+
+Const :      global scope             reassign xxxxx, redeclaration xxxxx
+             local scope              available only inside function blocks 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

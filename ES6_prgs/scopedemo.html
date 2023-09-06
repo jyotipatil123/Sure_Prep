@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope demo</title>
+    
+    <script>
+   
+
+    someFunction();
+
+   function someFunction() 
+    {
+        var x = "Declared outside the function";
+        console.log("Inside the function");
+        console.log(x);
+   }
+
+   console.log("Outside the function");
+   console.log(x);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
